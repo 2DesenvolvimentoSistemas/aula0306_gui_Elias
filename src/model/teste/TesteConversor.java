@@ -18,6 +18,9 @@ public class TesteConversor {
         
         System.out.printf("%.2f°C = %.2f°F\n", 0.0, con.celFah(0.0));
         System.out.printf("%.2f°C = %.2f°F\n", -40.0, con.celFah(-40.0));
-        System.out.printf("%.2f°C = %.2f°F\n", 38.0, con.celFah(38.0));
+        System.out.printf("%.2f°C = %.2f°F\n\n\n", 38.0, con.celFah(38.0));
+        System.out.printf("%.2f°F = %.2f°C\n", 0.0, con.fahCel(0.0));
+        System.out.printf("%.2f°F = %.2f°C\n", -40.0, con.fahCel(-40.0));
+        System.out.printf("%.2f°F = %.2f°C\n\n\n", 38.0, con.fahCel(38.0));
     }
 }

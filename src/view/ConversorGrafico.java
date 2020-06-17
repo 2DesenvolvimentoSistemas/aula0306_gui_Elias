@@ -5,11 +5,12 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import model.design.Conversor;
 
 /**
  *
- * @author Carlos
+ * @author Elias
  */
 public class ConversorGrafico extends javax.swing.JFrame {
 
@@ -31,10 +32,12 @@ public class ConversorGrafico extends javax.swing.JFrame {
 
         pnlConcersor = new javax.swing.JPanel();
         lblCelcius = new javax.swing.JLabel();
-        txtTemperatura = new javax.swing.JTextField();
-        btnCalcular = new javax.swing.JButton();
+        txtCel = new javax.swing.JTextField();
+        btnCparaF = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
-        lblResultado = new javax.swing.JLabel();
+        txtFah = new javax.swing.JTextField();
+        btnFparaC = new javax.swing.JButton();
+        lblFahrenheit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor de Temperatura");
@@ -49,25 +52,25 @@ public class ConversorGrafico extends javax.swing.JFrame {
         lblCelcius.setText("°c");
         lblCelcius.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        txtTemperatura.setBackground(new java.awt.Color(0, 0, 0));
-        txtTemperatura.setForeground(new java.awt.Color(200, 200, 200));
-        txtTemperatura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtTemperatura.setBorder(null);
-        txtTemperatura.setCaretColor(new java.awt.Color(200, 200, 200));
-        txtTemperatura.addActionListener(new java.awt.event.ActionListener() {
+        txtCel.setBackground(new java.awt.Color(0, 0, 0));
+        txtCel.setForeground(new java.awt.Color(200, 200, 200));
+        txtCel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCel.setBorder(null);
+        txtCel.setCaretColor(new java.awt.Color(200, 200, 200));
+        txtCel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTemperaturaActionPerformed(evt);
+                txtCelActionPerformed(evt);
             }
         });
 
-        btnCalcular.setBackground(new java.awt.Color(180, 20, 20));
-        btnCalcular.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCalcular.setText("Calcular");
-        btnCalcular.setBorder(null);
-        btnCalcular.setBorderPainted(false);
-        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+        btnCparaF.setBackground(new java.awt.Color(180, 20, 20));
+        btnCparaF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCparaF.setText("Calcular");
+        btnCparaF.setBorder(null);
+        btnCparaF.setBorderPainted(false);
+        btnCparaF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcularActionPerformed(evt);
+                btnCparaFActionPerformed(evt);
             }
         });
 
@@ -81,9 +84,31 @@ public class ConversorGrafico extends javax.swing.JFrame {
             }
         });
 
-        lblResultado.setFont(new java.awt.Font("Arial", 2, 36)); // NOI18N
-        lblResultado.setForeground(new java.awt.Color(215, 114, 30));
-        lblResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFah.setBackground(new java.awt.Color(0, 0, 0));
+        txtFah.setForeground(new java.awt.Color(200, 200, 200));
+        txtFah.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFah.setBorder(null);
+        txtFah.setCaretColor(new java.awt.Color(200, 200, 200));
+        txtFah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFahActionPerformed(evt);
+            }
+        });
+
+        btnFparaC.setBackground(new java.awt.Color(180, 20, 20));
+        btnFparaC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnFparaC.setText("Calcular");
+        btnFparaC.setBorderPainted(false);
+        btnFparaC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFparaCActionPerformed(evt);
+            }
+        });
+
+        lblFahrenheit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblFahrenheit.setForeground(new java.awt.Color(200, 200, 200));
+        lblFahrenheit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFahrenheit.setText("°F");
 
         javax.swing.GroupLayout pnlConcersorLayout = new javax.swing.GroupLayout(pnlConcersor);
         pnlConcersor.setLayout(pnlConcersorLayout);
@@ -93,70 +118,104 @@ public class ConversorGrafico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlConcersorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlConcersorLayout.createSequentialGroup()
-                        .addComponent(lblResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCelcius, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCparaF, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlConcersorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlConcersorLayout.createSequentialGroup()
+                        .addComponent(txtFah, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblFahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(pnlConcersorLayout.createSequentialGroup()
-                        .addComponent(txtTemperatura, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCelcius, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                        .addGap(9, 9, 9))))
+                        .addGroup(pnlConcersorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFparaC, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnlConcersorLayout.setVerticalGroup(
             pnlConcersorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConcersorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlConcersorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                    .addComponent(txtTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCelcius)
-                    .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblResultado, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(9, 9, 9)
+                .addGroup(pnlConcersorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCelcius, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFah, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlConcersorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCparaF, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFparaC, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlConcersor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlConcersor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlConcersor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlConcersor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTemperaturaActionPerformed
+    private void txtCelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTemperaturaActionPerformed
+    }//GEN-LAST:event_txtCelActionPerformed
 
-    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+    private void btnCparaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCparaFActionPerformed
         // TODO add your handling code here:
         //Variáveis
-        double cel;
-        
-        //Criação de objeto
-        Conversor con = new Conversor();
-        
-        cel = Double.parseDouble(txtTemperatura.getText());
-        lblResultado.setText(con.celFah(cel) + "°F");
-    }//GEN-LAST:event_btnCalcularActionPerformed
+        try{
+            //variáveis
+            double cel;
+
+            //Criação de objeto
+            Conversor con = new Conversor();
+
+            cel = Double.parseDouble(txtCel.getText());
+            txtFah.setText(con.celFah(cel) + "°F");
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Erro: digite apenas números!", "E R R O ! !", 0);
+        }
+    }//GEN-LAST:event_btnCparaFActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
-        txtTemperatura.setText(null);
-        lblResultado.setText(null);
+        txtCel.setText(null);
+        txtFah.setText(null);
         
-        txtTemperatura.requestFocus();
+        txtCel.requestFocus();
     }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void txtFahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFahActionPerformed
+       // TODO add your handling code here:
+    }//GEN-LAST:event_txtFahActionPerformed
+
+    private void btnFparaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFparaCActionPerformed
+        // TODO add your handling code here:
+        double fah;
+        
+        Conversor con2 = new Conversor();
+        
+        try{
+            fah = Double.parseDouble(txtFah.getText());
+            txtCel.setText(con2.fahCel(fah) + "°C");
+        }
+        catch(NumberFormatException f){
+            JOptionPane.showMessageDialog(null, "Erro: digite apenas números!", "E R R O !", 0);
+        }
+    }//GEN-LAST:event_btnFparaCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,11 +253,13 @@ public class ConversorGrafico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnCparaF;
+    private javax.swing.JButton btnFparaC;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JLabel lblCelcius;
-    private javax.swing.JLabel lblResultado;
+    private javax.swing.JLabel lblFahrenheit;
     private javax.swing.JPanel pnlConcersor;
-    private javax.swing.JTextField txtTemperatura;
+    private javax.swing.JTextField txtCel;
+    private javax.swing.JTextField txtFah;
     // End of variables declaration//GEN-END:variables
 }
